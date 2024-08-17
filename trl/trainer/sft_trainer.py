@@ -140,6 +140,7 @@ class SFTTrainer(Trainer):
         model_init_kwargs: Optional[Dict] = None,
         dataset_kwargs: Optional[Dict] = None,
         eval_packing: Optional[bool] = None,
+        model_direct_init: Optional[bool] = True
     ):
         if args is None:
             output_dir = "tmp_trainer"
@@ -415,6 +416,7 @@ class SFTTrainer(Trainer):
             callbacks=callbacks,
             optimizers=optimizers,
             preprocess_logits_for_metrics=preprocess_logits_for_metrics,
+            model_direct_init=model_direct_init
         )
 
         # Add tags for models that have been loaded with the correct transformers version
